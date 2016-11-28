@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AirBud</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/template.css' %}" media="screen" title="no title">
+
+
+    <script type="text/javascript" src="{%static  'js/three.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <!-- <div class="container"> -->
+      <div id="containerDiv" class="row">
+
+        <div id="three-container" class="col-lg-6 three-container container">
+
+        </div>
+        <div class="col-lg-6 airbud-info-container container">
+          <div class="row">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h2>Weather Information</h2>
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="row rowSpacer">
+                          <span></span>
+                        </div>
+                        <b>Wind Direction</b>
+                      </td>
+                      <td>
+                        <b> <span id="windDirectionNumber">90&deg;</span> </b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row rowSpacer">
+                          <span></span>
+                        </div>
+                        <b>Wind Speed</b>
+                      </td>
+                      <td>
+                        <b> <span id="windSpeedNumber">15</span> Kts</b>
+                      </td>
+                    </tr>
+                    <tr id="peakGustRow">
+                      <td>
+                        <div class="row rowSpacer">
+                          <span></span>
+                        </div>
+                        <b>Peak Gust</b>
+                      </td>
+                      <td>
+                        <b> <span id="peakGustNumber">15</span> Kts</b>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+          <div class="row">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h2>Weather Warnings</h2>
+              </div>
+              <div class="panel-body" class="weather-warning">
+                <div class="row" id="crossWindWarning" >
+                  <h1><b>CROSSWIND WARNING!</b></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+	 <div class="row">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2>Links</h2>
+              </div>
+              <div class="panel-body" class="weather-warning">
+                <button class="btn btn-primary">
+			<h3><a style="color: white;" href="admin/settings/airbudconfiguration/"> Configuration Panel </a></h3>
+		</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row debug">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h2>Debugging and Demo</h2>
+              </div>
+              <div class="panel-body" id="weatherWarning" class="weather-warning">
+                <div class="row debug">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="degreeInput"></label>
+                      <input type="number" name="degreeInput" class="form-control" id="degreeInput" placeholder="90" value="90" min="0" max="359">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="degreeUpdateButton" name="degreeUpdateButton" onclick="degreeUpdateButtonClick()">
+                        Update Degrees Arrow
+                    </button>
+                  </form>
+                </div>
+
+                <div class="row debug">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="knotsInput"></label>
+                      <input type="number" name="knotsInput" class="form-control" id="knotsInput" placeholder="15" value="15" min="0" max="1000">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="knotsUpdateButton" name="knotsUpdateButton" onclick="knotsUpdateButtonClick()">
+                        Update Knots
+                    </button>
+                  </form>
+                </div>
+                <div class="row debug">
+                  <form class="form-inline">
+                    <button type="button" class="btn btn-success" id="flipRunwayButton" name="flipRunwayButton" onclick="changeRunway()">
+                        Flip Runway
+                    </button>
+		    <buttontype="button" class="btn btn-warning" onclick="getWindData()"></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    <!-- </div> -->
+
+
+
+    <script src="{% static 'js/template.js' %}" charset="utf-8"></script>
+  </body>
+</html>
+

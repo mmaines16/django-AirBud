@@ -1,0 +1,64 @@
+body {
+				color: #000;
+				font-family:Verdana, Geneva, sans-serif;
+				font-size:32px;
+				text-align:center;
+				background-color: #fff;
+				margin: 0px;
+				padding: 0px;
+				overflow: auto;
+			}
+
+#containerDiv {
+  margin-top: 20px;
+}
+
+
+.debug {
+  /*display: none; /*Uncomment if you want to have contorl of changing arrow degree and color*/*/
+}
+
+.three-container {
+  height: 100%;
+  margin-right: 75px;
+  margin-left: -100px;
+}
+
+.airbud-info-container {
+  height: 100%;
+  margin-right: 20px;
+}
+
+#degreeInput {
+  min-width: 100px;
+  font-size: 24px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+#knotsInput {
+  min-width: 100px;
+  font-size: 24px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+#degreeUpdateButton {
+  min-width: 300px;
+}
+
+#knotsUpdateButton {
+  min-width: 300px;
+}
+
+#flipRunwayButton {
+  min-width: 500px;
+}
+
+.weather-warning, h1{
+  color: red;
+}
+
+.hiddenBlock {
+	display: none;
+}

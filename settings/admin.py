@@ -5,7 +5,7 @@ from forms import AirBudConfigurationForm
 
 # Register your models here.
 class AirBudConfigurationAdmin(SingletonModelAdmin):
-    exclude = ('carrier_dwell_time',)
+    exclude = ()
     class Meta:
         model = AirBudConfiguration
         form = AirBudConfigurationForm

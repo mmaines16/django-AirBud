@@ -10,7 +10,7 @@ import time
 
 @shared_task
 def generate_data():
-    data_store = redis.StrictRedis(host='localhost', port=6379, db=5)
+    data_store = redis.StrictRedis(host='localhost', port=6379, db=0)
     random.seed(datetime.now())
 
     rand_wind_speed = random(0.0, 200.0)
@@ -22,12 +22,14 @@ def generate_data():
 
 @shared_task
 def get_current_data():
-    data_store = redis.StrictRedis(host='localhost', port=6379, db=5)
+    data_store = redis.StrictRedis(host='localhost', port=6379, db=0)
 
-    speed = float(data_store.get('wind_speed'))
-    direction = int(data_store.get('wind_dir'))
+    speed = float(data_store.get('windSpeed'))
+    direction = int(data_store.get('immediateWindDir'))
+    crossWindFlag = data_store.get('crossWindFlag')
+    peakGust =  data_store.get('gustWindSpeed')
 
-    data = (speed, direction)
+    data = (speed, direction, peakGust, crossWindFlag)
     print data
 
     return data

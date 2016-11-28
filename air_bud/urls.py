@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from data.views import data_api_view 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^settings/', include('settings.urls')),
-    url(r'^', include('data.urls')),
+    url(r'^$', include('data.urls')),
+    url(r'^api/data/$', data_api_view),
 ]
